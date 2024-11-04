@@ -1,0 +1,112 @@
+---
+title: "Lab06-fonctions_iterations_conditions"
+author: "Théo"
+date: "2024-11-04"
+format: html
+---
+Exercice 1 fonctions :
+
+1) Transformez les blocs de code suivants en fonctions. Combien d'arguments sont nécessaires ? Quels noms de fonctions choisir ?
+
+  mean(is.na(x))
+  mean(is.na(y))
+  mean(is.na(z))
+	
+  x / sum(x, na.rm = TRUE)
+  y / sum(y, na.rm = TRUE)
+  z / sum(z, na.rm = TRUE)
+
+  round(x / sum(x, na.rm = TRUE) * 100, 1)
+  round(y / sum(y, na.rm = TRUE) * 100, 1)
+  round(z / sum(z, na.rm = TRUE) * 100, 1)
+
+```{r setup, include=FALSE}
+
+```
+
+2) Dans cette version de rescale01(), les valeurs infinies sont inchangées. Réécrivez rescale01() pour que -Inf devienne 0 et Inf devienne 1.
+
+x <- c(1:10, Inf)
+rescale01 <- function(x) {
+  rng <- range(x, na.rm = TRUE, finite = TRUE)
+  (x - rng[1]) / (rng[2] - rng[1])
+}
+
+```{r, include=FALSE}
+
+```
+
+3) Prenez ce vecteur de dates de naissances, écrivez une donction qui calcul l'âge en années.
+birth_dates <- c(18-10-1996, 03-08-1999, 05-03-1994, 14-11-1966, 09-06-1967)
+
+```{r, include=FALSE}
+
+```
+4) Ecrivez both_na(), une fonction summary qui prend deux vecteurs de même taille et retourne les positions qui contiennet un NA dans les deux vecteur.
+
+vecteur1 <- c("do","re","mi",NA,"fa",NA,NA,"sol","la","si",NA)
+vecteur2 <- c(32,NA,NA,NA,12,NA,NA,1964,14,NA,12)
+
+```{r, include=FALSE}
+
+```
+
+5) Lisez la documentation pour comprendre ce que font les fonctions suivantes. Pourquoi sont-elles utiles alors qu'elles sont si courtes ?
+
+is_directory <- function(x) {
+  file.info(x)$isdir
+}
+is_readable <- function(x) {
+  file.access(x, 4) == 0
+}
+
+
+
+Exercice 2 Itérations :
+
+Testez voc compétences avec across() en :
+
+1) Calculant le nombre de valeurs uniques dans chaque colonne de palmerpenguins::penguins.
+
+```{r, include=FALSE}
+
+```
+
+2) Calculant la moyenne de chaque colonne dans mtcars.
+
+```{r, include=FALSE}
+
+```
+
+3) Groupant le tableau diamonds par cut, clarity, et color puis en comptant le nombre d'observations et en calculant la moyenne pour chaque colonne numérique.
+
+```{r, include=FALSE}
+
+```
+
+Exercice 3 conditions :
+
+1) Un nombre est pair s'il est divisible par 2, ce qui correspond dans à R à x %% 2 == 0. Utilisez cela et if_else() pour déterminer si chaque nombre entre 0 et 20 est pair ou impair.
+
+```{r, include=FALSE}
+
+```
+
+2) Voici un vecteur de jours : days <- c("Monday", "Saturday", "Wednesday").
+Utilisez if_else() pour étiqueter les jours correspondant à des jours de fin de semaine ou à des jours de la semaine.
+
+```{r, include=FALSE}
+
+```
+
+3) Utilisez if_else() pour calculer la valeur absolue d'un vecteur numérique appelé x et testez votre code.
+
+```{r, include=FALSE}
+
+```
+
+4) Utilisez case_when() qui utilise les colonnes day et month de flights pour étiqueter les jours fériés (Nouvelle_annee, Noel, Saint-Jean-Baptise, Action-de-grace). Créez d'abord un vecteur logique VRAI ou FAUX, et créez une nouvelle colonne de caractères qui donne le nom des jours fériés ou NA.
+
+```{r, include=FALSE}
+
+```
